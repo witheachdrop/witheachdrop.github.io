@@ -2,5 +2,5 @@ theme: jekyll-theme-slate
 title: With Each Drop
 description: Bookmark this to keep an eye on our project updates!
 header_pages:
-  - pds.md
+  - test.md
   - about.md
