@@ -3,5 +3,6 @@ theme: minima
 title: With Each Drop
 description: Bookmark this to keep an eye on our project updates!
 header_pages:
-  - test.md
   - about.md
+  - climate.md
+  - artists.md

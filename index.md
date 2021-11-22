@@ -1,9 +1,4 @@
 ---
-title: "Welcome to our porject..."
+title: "This is a story about water."
 ---
-Hey there, check out our other pages.
-
-## current pages:
-* [about](about.md) — We Are Chall
-* [test](test.md) — a p5.js proof of concept.
-* [broken link](broke.md) — testing out the 404 page. 
+Once upon a time there was a body – a body that represents many bodies, most of whom move in and through this world unquestioning, a few knowing – and there was water. This water was within us and without us. It centred us and was central to our dreamful existence.
