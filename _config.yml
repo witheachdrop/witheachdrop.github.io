@@ -1,8 +1,9 @@
 # theme: jekyll-theme-slate
 theme: minima
 title: With Each Drop
-description: Bookmark this to keep an eye on our project updates!
+description: A melding of poetry, dance and sound, with a helping of machine learning.
 header_pages:
   - about.md
   - climate.md
   - artists.md
+  - test/test.md
