@@ -30,7 +30,8 @@ function preload(){
 function setup() {
   console.log("setting up...");
   // set canvas size and framerate to match video
-  createCanvas(960, 540);
+  let myCanvas = createCanvas(960, 540);
+  myCanvas.parent('p5Container');
   frameRate(30);
   noCursor();
   checkbox = createCheckbox('draw skeleton', false);
