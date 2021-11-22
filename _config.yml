@@ -1,9 +1,13 @@
 # theme: jekyll-theme-slate
 theme: minima
-title: With Each Drop
+title: with each drop
 description: A melding of poetry, dance and sound, with a helping of machine learning.
+
+github_username:  witheachdrop # DO NOT include the @ character, or else the build will fail!
+
 header_pages:
   - about.md
   - climate.md
+  - duet.md
   - artists.md
-  - test/test.md
+  - create.md
