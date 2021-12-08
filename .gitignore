@@ -1,0 +1,9 @@
+model/
+todo.md
+video/
+
+# VS Code
+.vscode/
+
+# Mac OS
+.DS_Store
