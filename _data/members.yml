@@ -1,15 +1,20 @@
-- name: Cheyenne Alexandria Phillips 
+- name: Cheyenne Alexandria Phillips
+  image: cheyenne.webp
   title: Writer
 
 - name: Hal Rodriguez
+  image: hal.webp
   title: Creative Technologist
   github: halr
 
-- name: Ayesha Hassanwalia 
+- name: Ayesha Hassanwalia
+  image: ayesha.webp
   title: Choreographer
 
 - name: Lidya Chrisfens
+  image: lidya.webp
   title: Designer
 
-- name: Lisa Botos 
+- name: Lisa Botos
+  image: lisa.webp
   title: Curator
