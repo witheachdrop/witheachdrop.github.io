@@ -19,7 +19,7 @@ We are an international collective of artists and creatives working and experime
 <div class="container">
 {% for member in site.data.members %}
   <div>
-    <img class="circle-frame" src="../images/{{ member.image }}">
+    <img class="circle-frame" width="148" height="148" src="../images/{{ member.image }}">
     <p><strong>{{ member.name }}</strong><br>{{ member.title }}</p>
   </div>
 {% endfor %}
