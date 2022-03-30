@@ -1,20 +1,26 @@
 - name: Cheyenne Alexandria Phillips
   image: cheyenne.webp
   title: Writer
+  timezone: UTC+08:00
 
 - name: Hal Rodriguez
   image: hal.webp
   title: Creative Technologist
   github: halr
+  link: https://www.ampedatelier.com
+  timezone: UTC−08:00
 
 - name: Ayesha Hassanwalia
   image: ayesha.webp
   title: Choreographer
+  timezone: UTC+05:30
 
 - name: Lidya Chrisfens
   image: lidya.webp
   title: Designer
+  timezone: UTC+08:00
 
 - name: Lisa Botos
   image: lisa.webp
   title: Curator
+  timezone: UTC+08:00
