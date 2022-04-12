@@ -3,6 +3,9 @@ model/
 todo.md
 video/
 
+# test files
+*/test.html
+
 # VS Code
 .vscode/
 
