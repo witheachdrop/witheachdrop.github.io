@@ -13,6 +13,11 @@ let poem = [
     "drowning lungs, gasping cries",
     "life-giving and life-taking"
 ];
+let osc, freq, amp;
+let fft, noiseGen, audioFilter;
+let vLevel;
+let waveY = 0;
+let poseX = 0;
 
 function setup() {
     let myCanvas = createCanvas(600, 400);
@@ -24,6 +29,16 @@ function setup() {
     //console.log(ml5);
     poseNet = ml5.poseNet(capture, modelLoaded);
     poseNet.on('pose', gotPoses);
+
+    //set up sound
+    audioFilter = new p5.BandPass();  // surf
+    // give the filter a narrow band (lower res = wider bandpass)
+    audioFilter.res(50);
+    noiseGen = new p5.Noise('brown');
+    noiseGen.disconnect();
+    noiseGen.connect(audioFilter);
+    noiseGen.start();
+    fft = new p5.FFT();
 
     noStroke();
     // Set text characteristics
@@ -44,6 +59,7 @@ function gotPoses(poses) {
         // https://p5js.org/reference/#/p5/lerp
         waterH = lerp(waterH,newY,0.125)
         //console.log('Water height = '+waterH);
+        poseX = poses[0].pose.keypoints[0].position.x;
     }
 }
 
@@ -59,10 +75,21 @@ function draw() {
     pop();
     filter(GRAY);
 
+    // mod the sound
+    freq = constrain(map(poseX, 0, width, 220, 660), 220, 660);
+    // set the LowPass cutoff frequency
+    //xoff = xoff + 0.01;
+    //let freq = noise(xoff) * 880;  // wind
+    //let freq = noise(xoff) * 220;  // surf;
+    audioFilter.freq(freq);
+
+    vLevel = map(waterH, 0, height, 0.1, 1.0);
+    outputVolume(1-vLevel);
+    // inverted the origin is at the top
+
     // draw water
     fill(0,0,255, 50);
-    // https://p5js.org/reference/#/p5/rect
-    rect(0, waterH, width, height-waterH);
+    drawWaveForm(waterH);
 
     // draw poem
     fill(0,255,128);
@@ -72,4 +99,23 @@ function draw() {
     text(poem[index], 0, waterH);
     textAlign(RIGHT, BOTTOM);
     text('with each drop...', width, height);
+}
+
+// draw the waveform
+function drawWaveForm(ym) {
+    let yc = constrain(ym, 20, height-20);
+    let spectrum = fft.waveform();
+    beginShape();
+    fill(0,0,255, 50);
+    // draw the bottom right &  bottom right vertices
+    vertex(width, height);
+    vertex(0, height);
+    for(let i = 0; i < spectrum.length; i++){
+        let x = map(i, 0, spectrum.length, 0, width);
+        let reading = spectrum[i] * 25;
+        //let y = map(spectrum[i], -1, 1, yc, yc/1.25);
+        waveY = lerp(waveY, map(reading, -1, 1, yc, yc/1.25), 0.125);
+        vertex(x,waveY);
+    }
+    endShape();  
 }
